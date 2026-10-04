@@ -1,5 +1,5 @@
 """
-Name: (put your name here)
+Name: Frances Lesser
 Peers: (add any collaborators)
 References: (anything you checked to solve this)
 """
@@ -29,7 +29,18 @@ def read_five_ints():
         # check if the int is not in the interval [0 to 10] print error
         # add the int to grades at index idx
 
-        pass
+        in_str=input("Give me the next grade in [0 to 10]:")
+        if in_str.isdigit():
+            num = int(in_str)
+        else:
+            print ("Error in read_five_ints: input string is not for an integer")
+            exit()
+        if num < 0 or num > 10:
+            print ("Error in read_five_ints: input integer outside of range")
+            exit()
+        
+        grades[idx] = num    
+        
 
     #Anything with this indentation is NO LONGER inside the loop
 
@@ -45,7 +56,23 @@ def pick_averaging_method():
     Any other input prints
     'Error in pick_averaging_method: incorrect option picked'.
     """
-    pass
+    user = input("Pick 'a' for mean, 'b' for median, 'c' for mode: ")
+    if user=="a":
+        print("picked: Mean")
+        avg = statistics.mean(grades)
+        return avg
+    if user=="b":
+        print("picked: Median")
+        avg = statistics.median(grades)
+        return avg
+    if user=="c":
+        print("picked: Mode")
+        avg = statistics.mode(grades)
+        return avg
+    else:
+        print("Error in pick_averaging_method: incorrect option picked")
+        exit()
+    
 
 # Task 3:
 #  Complete the function "pick_visualization" below:
@@ -58,7 +85,16 @@ def pick_visualization(average):
     Any other input prints
     'Error in pick_visualization: incorrect option picked'.
     """
-    pass
+    visualization = input ("Pick '1' for print average, or '2' for plot average: ")
+    if visualization == "1":
+        print_list_and_average(average)
+        return()
+    if visualization == "2":
+        plot_grades(average)
+        return()
+    else:
+        print("Error in pick_visualization: incorrect option picked")
+        exit()
 
 
 # ---------------------------------------
